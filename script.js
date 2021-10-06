@@ -1,60 +1,80 @@
 'use strict';
 
-let title = 'Project';
-title = prompt('Как называется ваш проект?')
-console.log(title);  
-console.log(typeof title);                   //вывод в консоль тип данных переменной //
+let title = prompt('Как называется ваш проект?')
+let screens = prompt('Простые, сложные, интерактивные', 'Простые, сложные, интерактивные');  // 5 задание
+let screenPrice = +prompt('Сколько будет стоить данная работа?');
+let adaptive = confirm('Нужен ли адаптив на сайте?'); 
+let service1 = prompt('Какой дополнительный тип услуги нужен?')
+let servicePrice1 = +prompt('Сколько это будет стоить?')
+let service2 = prompt('Какой дополнительный тип услуги нужен?')
+let servicePrice2 = +prompt('Сколько это будет стоить?')
+let rollback = 50;
+let fullPrice = screenPrice + servicePrice1 + servicePrice2;
+let servicePercentPrice = Math.ceil(fullPrice - (fullPrice * (rollback/100)))
+let allServicePrices = servicePrice1 + servicePrice2;
+//let getFullPrice = screenPrice + allServicePrices;
 
-let screens = 'Простые, сложные, интерактивные';
+const showTypeOf = function(variable) {
+                                                                                  // делал александр
+}
+
+const getRollbackMessage = function(price) {                                      //  делал александр
+  if (price > 30000 ) {
+    return 'Даем скидку в 10%'
+  } else if (price > 15000 && price <30000) {
+    return 'Даем скидку в 5%'
+  } else if (price < 15000 && price > 0) {
+    return 'Скидка не предусмотрена'
+  } else {
+    return 'Что-то пошло не так'
+  }
+}
+
+const getAllServicePrices = function(servicePrice1, servicePrice2) {
+  return servicePrice1 + servicePrice2
+}
+
+function getFullPrice (screenPrice, allServicePrices) {
+  return screenPrice + allServicePrices
+}
+
+const getTitle = function(str1) {
+ return str1[0].toUpperCase(0) + str1.slice(1)
+}
+
+const getServicePercentPrices = function() {
+  return fullPrice - (fullPrice * (rollback/100))
+}
+
+showTypeOf(title)
+showTypeOf(screenPrice)
+showTypeOf(adaptive)
+getAllServicePrices(allServicePrices)                                          // первое задание
+getFullPrice(getRollbackMessage(fullPrice))                                    //второе задание
+getTitle(title)                                                               // третье задание
+getServicePercentPrices(servicePercentPrice)                                 // четвертое задание
+
+console.log(title[0].toUpperCase() + title.slice(1), typeof title);   
+console.log(typeof screenPrice); 
+console.log(typeof adaptive);   
+
+console.log(getRollbackMessage(fullPrice));  //сделал александр
 console.log(screens.length);
 console.log(screens.toLowerCase().split(', '));
 screens = prompt('Какие типы экранов нужно разработать?')
 console.log(screens);
-
-let screenPrice = 10;
 console.log(`Стоимость верстки экранов ${screenPrice} долларов`);
-screenPrice = prompt('Сколько будет стоить данная работа?');
-
-let rollback = 50;
-
-let fullPrice = 25555;
 console.log(`Стоимость разработки сайта ${fullPrice} рублей`);
 console.log(`Процент отката посреднику за работу ${(fullPrice * (rollback/100))} рублей`);
-console.log(typeof fullPrice);   //вывод в консоль тип данных переменной //
-
-let adaptive = true;
-adaptive = confirm('Нужен ли адаптив на сайте?');
-console.log(typeof adaptive);   //вывод в консоль тип данных переменной //
-
-let service1 = prompt('Какой дополнительный тип услуги нужен?')
-  console.log(service1);
-
-let servicePrice1 = prompt('Сколько это будет стоить?')
-  console.log(servicePrice1);
-
-let service2 = prompt('Какой дополнительный тип услуги нужен?')
-  console.log(service2);
-
-let servicePrice2 = prompt('Сколько это будет стоить?')
-  console.log(servicePrice2);
-
-  fullPrice = Number(screenPrice) + Number(servicePrice1) + Number(servicePrice2);   //сохранили в переменную fullPrice и можем использовать ее
+console.log(service1);
+console.log(servicePrice1);
+console.log(service2);
+console.log(servicePrice2);
 console.log(fullPrice);
-
-let servicePercentPrice = Math.ceil(fullPrice - (fullPrice * (rollback/100)))
+console.log(allServicePrices);
 console.log(servicePercentPrice);
+//console.log(variable, typeof variable);
 
-if (fullPrice > 30000 ) {
-    console.log('Даем скидку в 10%');
-} else if (fullPrice > 15000 && fullPrice <30000) {
-    console.log('Даем скидку в 5%');
-} else if (fullPrice < 15000 && fullPrice > 0) {
-    console.log('Скидка не предусмотрена');
-} else {
-    console.log('Что-то пошло не так');
-}
-
-  
 
 
 
