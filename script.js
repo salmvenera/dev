@@ -4,18 +4,23 @@ let title = prompt('Как называется ваш проект?')
 let screens = prompt('Простые, сложные, интерактивные', 'Простые, сложные, интерактивные');  // 5 задание
 let screenPrice = +prompt('Сколько будет стоить данная работа?');
 let adaptive = confirm('Нужен ли адаптив на сайте?'); 
+
 let service1 = prompt('Какой дополнительный тип услуги нужен?')
 let servicePrice1 = +prompt('Сколько это будет стоить?')
 let service2 = prompt('Какой дополнительный тип услуги нужен?')
 let servicePrice2 = +prompt('Сколько это будет стоить?')
+
 let rollback = 50;
 let fullPrice = screenPrice + servicePrice1 + servicePrice2;
 let servicePercentPrice = Math.ceil(fullPrice - (fullPrice * (rollback/100)))
 let allServicePrices = servicePrice1 + servicePrice2;
 //let getFullPrice = screenPrice + allServicePrices;
 
+const getAllServicePrices = function(servicePrice1, servicePrice2) {
+  return servicePrice1 + servicePrice2
+}
 const showTypeOf = function(variable) {
-                                                                                  // делал александр
+  console.log(variable, typeof variable);                                                                                 // делал александр
 }
 
 const getRollbackMessage = function(price) {                                      //  делал александр
@@ -28,10 +33,6 @@ const getRollbackMessage = function(price) {                                    
   } else {
     return 'Что-то пошло не так'
   }
-}
-
-const getAllServicePrices = function(servicePrice1, servicePrice2) {
-  return servicePrice1 + servicePrice2
 }
 
 function getFullPrice (screenPrice, allServicePrices) {
@@ -49,6 +50,7 @@ const getServicePercentPrices = function() {
 showTypeOf(title)
 showTypeOf(screenPrice)
 showTypeOf(adaptive)
+
 getAllServicePrices(allServicePrices)                                          // первое задание
 getFullPrice(getRollbackMessage(fullPrice))                                    //второе задание
 getTitle(title)                                                               // третье задание
@@ -73,7 +75,7 @@ console.log(servicePrice2);
 console.log(fullPrice);
 console.log(allServicePrices);
 console.log(servicePercentPrice);
-//console.log(variable, typeof variable);
+
 
 
 
