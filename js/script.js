@@ -9,17 +9,17 @@ console.log(handler_btn)
 const screen_btn = document.querySelector('.screen-btn')
 console.log(screen_btn)
 
-const item_percent = document.querySelectorAll('.main-controls__item other-items percent')
+const item_percent = document.querySelectorAll('.percent')
 console.log(item_percent)
 
-const item_number = document.querySelectorAll('.main-controls__item other-items number')
+const item_number = document.querySelectorAll('.number')
 console.log(item_number)
 
-const range = document.querySelector('input[type="range"]')
+const range = document.querySelector('.main-controls__item.rollback input[type="range"]')
 console.log(range)
 
-const value = document.querySelector('.range-value')
-console.log(value)
+const span = document.querySelector('.rollback .range-value')
+console.log(span)
 
 const input = document.getElementsByClassName('total-input')
 console.log(input[0])
