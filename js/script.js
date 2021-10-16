@@ -1,137 +1,47 @@
-'use strict';
 
-const title = document.getElementsByTagName('h1')
-console.log(title[0])
+const books = document.querySelectorAll('.books')
+const book = document.querySelectorAll('.book')
+const h2 = document.querySelectorAll('h2')
+const ul = document.querySelectorAll('ul')
+const li = document.querySelectorAll('li')
 
-const handler_btn = document.getElementsByClassName('handler_btn')
-console.log(handler_btn)
+console.log(book)
+console.log(books)
+console.log(li)
+console.log(ul)
 
-const screen_btn = document.querySelector('.screen-btn')
-console.log(screen_btn)
+books[0].prepend(book[1])
+book[2].before(book[5])
+book[5].before(book[3])
+book[3].before(book[4])
+book[4].before(book[0])
 
-const item_percent = document.querySelectorAll('.percent')
-console.log(item_percent)
+const image = document.querySelector("body")
+.style.backgroundImage = "URL('./image/adv.jpg')"
 
-const item_number = document.querySelectorAll('.number')
-console.log(item_number)
+const newh2 = document.createElement('h2')
+newh2.innerHTML = '<a href="https://github.com/azat-io/you-dont-know-js-ru/blob/master/this%20%26%20object%20prototypes/README.md#you-dont-know-js-this--object-prototypes" target="_blank">Книга 3. this и Прототипы Объектов</a>'
+h2[4].replaceWith(newh2)  /* заменяю новый h2 на новый h2, не так надо */
 
-const range = document.querySelector('.main-controls__item.rollback input[type="range"]')
-console.log(range)
+li[2].before(li[3])
+li[4].after(li[5]) 
+li[9].after(li[2])
+li[2].after(li[10])
+li[4].before(li[6]) 
+li[4].before(li[8]) 
 
-const span = document.querySelector('.rollback .range-value')
-console.log(span)
+li[47].after(li[55]) 
+li[55].after(li[49])  
+li[49].after(li[50]) 
+li[53].after(li[51])
 
-const input = document.getElementsByClassName('total-input')
-console.log(input[0])
-console.log(input[1])
-console.log(input[2])
-console.log(input[3])
-console.log(input[4])
+// console.log(newh2) */
 
-let blockscreen = document.querySelectorAll('.screen')
-console.log(blockscreen)
+const adv = document.querySelector(".adv")
+adv.remove()
 
-const appData = {
-  title: '',
-  screens: [],
-  screenPrice: 0,
-  adaptive: true,
-  services: {},
-  rollback: 50,
-  allServicePrices: 0,
-  servicePercentPrice: 0,
-  fullPrice: 0,
-  start: function () {
-    appData.asking();
-    this.addPrices();
-    appData.getFullPrice();
-    appData.getServicePercentPrices();
-    appData.getTitle;
-
-    appData.logger();
-  },
-  asking: function () {
-
-    do {
-      appData.title = prompt('Как называется ваш проект?', 'Калькулятор верстки');
-    } while (!isNaN(appData.title));
-      /* appData.title = appData.getTitle();  */
-    
-    for (let i = 0; i < 2; i++) {
-        let name;
-        let price = 0;
-      do {
-         name = prompt('Какие типы экранов нужно разработать?');
-      } while (!isNaN(name)); 
-
-      do {
-         price = prompt('Сколько будет стоить данная работа?');
-      } while (!appData.isNumber(price)); 
-
-      appData.screens.push({ id: i, name: name, price: price })
-    }
-
-    for (let i = 0, j; i < 2; i++) {  
-      let name; 
-
-      do {
-        name = prompt('Какой дополнительный тип услуги нужен?');
-      } while (!isNaN(name));     
-
-      do {
-        j = prompt('Сколько это будет стоить?');
-      }
-      while (!appData.isNumber(j))
-      
-      appData.services[name] = +j   //должно заноситься число, поэтому ставим плюсик +j
-    }
-    appData.adaptive = confirm('Нужен ли адаптив на сайте?');
-  },
-  addPrices: function() {                        //стоимость услуг и экранов
-    for (let screen of appData.screens) {
-        appData.screenPrice += +screen.price
-    }
-
-    for (let key in appData.services) {
-      appData.allServicePrices += appData.services[key]
-    }
-
-  },
-  isNumber: function (num) {
-    return !isNaN(parseFloat(num)) && isFinite(num) 
-  }, 
-  getFullPrice: function () {
-    appData.fullPrice = +appData.screenPrice + +appData.allServicePrices
-  },
-  getTitle: function () {
-    appData.title = appData.title.trim[0].toUpperCase() + appData.title.trim().substr(1).tolowerCase()
-  },
-  getServicePercentPrices: function () {
-    appData.servicePercentPrice = appData.fullPrice - (appData.fullPrice * (appData.rollback/100))
-  },
-  getRollbackMessage: function(price) {      
-    let message;                               
-    if (price >= 30000 ) {
-      message = 'Даем скидку в 10%';
-    }  else if (price >= 15000 && price < 30000) {
-      message = 'Даем скидку в 5%';
-    }  else if (price >= 0 && price < 15000) {
-      message = 'Скидка не предусмотрена';
-    }  else {
-      message = 'Что-то пошло не так';
-    }
-    return message;
-  },
-  logger(){
-    for (let obj in appData){
-      console.log(`Объект appData - ${appData[obj]}`);
-      console.log(appData.screens);
-    }
-  } 
-}
-appData.start();
-
-
-
+const newli = document.createElement("li")
+newli.textContent = "Глава 8: За пределами ES6"
+li[25].append(newli)
 
 
